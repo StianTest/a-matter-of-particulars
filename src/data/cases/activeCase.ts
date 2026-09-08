@@ -1,0 +1,1 @@
+export const DEFAULT_CASE_ID = 'case-01'
