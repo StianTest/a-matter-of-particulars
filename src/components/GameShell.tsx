@@ -35,7 +35,9 @@ function GameShell({
         {showNotebook && caseId && (
           <button
             className="game-shell__notebook-button"
-            onClick={() => setIsNotebookOpen(true)}
+            onClick={() =>
+              setIsNotebookOpen((isOpen) => !isOpen)
+            }
           >
             Notebook
           </button>
