@@ -13,32 +13,28 @@ function InvestigationPanel({
   completedInvestigations,
   onInvestigate,
 }: InvestigationPanelProps) {
-    const availableInvestigations = investigations.filter(
-        (investigation) => {
-          if (!investigation.unlocked) {
-            return false
-          }
-      
-          if (investigation.completed) {
-            return false
-          }
-      
-          if (completedInvestigations.includes(investigation.id)) {
-            return false
-          }
-      
-          if (
-            investigation.requires &&
-            !investigation.requires.every((requiredId) =>
-              completedInvestigations.includes(requiredId),
-            )
-          ) {
-            return false
-          }
-      
-          return true
-        },
-      )
+  const availableInvestigations = investigations.filter(
+    (investigation) => {
+      if (investigation.completed) {
+        return false
+      }
+  
+      if (completedInvestigations.includes(investigation.id)) {
+        return false
+      }
+  
+      if (
+        investigation.requires &&
+        !investigation.requires.every((requiredId) =>
+          completedInvestigations.includes(requiredId),
+        )
+      ) {
+        return false
+      }
+  
+      return true
+    },
+  )
 
   return (
     <section className="investigation-panel">

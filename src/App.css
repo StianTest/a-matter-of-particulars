@@ -4601,3 +4601,15 @@
   color: rgba(235, 225, 210, 0.9);
   transform: translateX(-2px);
 }
+
+
+.case-file__new-indicator {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #9b2f2f;
+  margin-left: auto;
+  align-self: center;
+  box-shadow: 0 0 0 2px rgba(155, 47, 47, 0.08);
+}

@@ -1,10 +1,11 @@
 export type CaseDocumentBase = {
-    id: string
-    title: string
-    type: string
-    date?: string
-    author?: string
-  }
+  id: string
+  title: string
+  type: string
+  date?: string
+  author?: string
+  requiresInvestigation?: string
+}
   
   export type DocumentBlock =
     | {

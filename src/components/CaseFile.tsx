@@ -12,6 +12,7 @@
      investigationOpportunities: number
      completedInvestigations: string[]
      investigationResult: Investigation | null
+     accessedDocuments: string[]
      onInvestigate: (investigation: Investigation) => void
      onOpenDocuments: (documentId: string) => void
      onOpenConclusion: () => void
@@ -23,6 +24,7 @@
      caseCompleted,
      investigationOpportunities,
      completedInvestigations,
+     accessedDocuments,
      investigationResult,
      onInvestigate,
      onOpenDocuments,
@@ -227,35 +229,62 @@
              </div>
    
              <span className="case-file__materials-count">
-               {String(caseData.documents.length).padStart(2, '0')}
-             </span>
+  {String(
+    caseData.documents.filter((document) => {
+      if (!document.requiresInvestigation) {
+        return true
+      }
+
+      return completedInvestigations.includes(
+        document.requiresInvestigation,
+      )
+    }).length,
+  ).padStart(2, '0')}
+</span>
            </div>
    
            <div className="case-file__materials-index">
-             {caseData.documents.map((document, index) => (
-               <button
-                 key={document.id}
-                 className="case-file__material-row"
-                 onClick={() =>
-                   onOpenDocuments(document.id)
-                 }
-               >
-                 <span className="case-file__material-number">
-                   {String(index + 1).padStart(2, '0')}
-                 </span>
-   
-                 <div className="case-file__material-information">
-                   <strong>
-                     {document.title}
-                   </strong>
-   
-                   <span>
-                     {document.type}
-                   </span>
-                 </div>
-               </button>
-             ))}
-           </div>
+  {caseData.documents
+    .filter((document) => {
+      if (!document.requiresInvestigation) {
+        return true
+      }
+
+      return completedInvestigations.includes(
+        document.requiresInvestigation,
+      )
+    })
+    .map((document, index) => (
+      <button
+        key={document.id}
+        className="case-file__material-row"
+        onClick={() =>
+          onOpenDocuments(document.id)
+        }
+      >
+        <span className="case-file__material-number">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+
+        <div className="case-file__material-information">
+  <strong>
+    {document.title}
+  </strong>
+
+  <span>
+    {document.type}
+  </span>
+</div>
+
+{!accessedDocuments.includes(document.id) && (
+  <span
+    className="case-file__new-indicator"
+    aria-label="New document"
+  />
+)}
+      </button>
+    ))}
+</div>
          </section>
    
          {/* =====================================================

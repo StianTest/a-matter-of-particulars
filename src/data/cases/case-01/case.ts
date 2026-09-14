@@ -242,6 +242,7 @@ export const case01: CaseData = {
       format: 'transcript',
       date: 'October 15, 1929',
       author: 'Inspector Hale',
+      requiresInvestigation: 'investigate-thomas-reed',
       participants: [
         'Inspector Hale',
         'Thomas Reed',
@@ -358,6 +359,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'Thomas Reed',
+      requiresInvestigation: 'investigate-thomas-reed',
 
       content: [
         {
@@ -418,6 +420,7 @@ export const case01: CaseData = {
       format: 'transcript',
       date: 'October 15, 1929',
       author: 'Inspector Hale',
+      requiresInvestigation: 'investigate-beatrice',
       participants: [
         'Inspector Hale',
         'Beatrice Cooper',
@@ -534,6 +537,7 @@ export const case01: CaseData = {
       format: 'transcript',
       date: 'October 15, 1929',
       author: 'Inspector Hale',
+      requiresInvestigation: 'investigate-margaret',
       participants: [
         'Inspector Hale',
         'Margaret Whitmore',
@@ -630,6 +634,7 @@ export const case01: CaseData = {
       format: 'transcript',
       date: 'October 15, 1929',
       author: 'Inspector Hale',
+      requiresInvestigation: 'investigate-harrington',
       participants: [
         'Inspector Hale',
         'George Harrington',
@@ -716,6 +721,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 14, 1929',
       author: 'George Harrington',
+      requiresInvestigation: 'investigate-harrington',
 
       content: [
         {
@@ -747,6 +753,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1929',
       author: 'Unknown',
+      requiresInvestigation: 'investigate-harrington',
 
       content: [
         {
@@ -785,6 +792,7 @@ export const case01: CaseData = {
       id: 'family-photograph',
       title: 'The Cooper Family Photograph',
       type: 'Evidence Photograph',
+      requiresInvestigation: 'investigate-photograph',
       format: 'image',
       image: '/test-document.jpg',
       caption:
@@ -798,6 +806,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1902–1929',
       author: 'Various',
+      requiresInvestigation: 'investigate-beatrice',
 
       content: [
         {
@@ -857,6 +866,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1902',
       author: 'Westbridge City Police',
+      requiresInvestigation: 'investigate-mercer-payment',
 
       content: [
         {
@@ -897,6 +907,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'March 1902',
       author: 'Westbridge City Police',
+      requiresInvestigation: 'investigate-1902-records',
 
       content: [
         {
@@ -943,6 +954,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1902',
       author: 'Westbridge City Authorities',
+      requiresInvestigation: 'investigate-henry-cooper',
 
       content: [
         {
@@ -988,6 +1000,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1900–1903',
       author: 'Private Family Papers',
+      requiresInvestigation: 'investigate-family-records',
 
       content: [
         {
@@ -1024,6 +1037,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1929',
       author: 'Private Boarding House',
+      requiresInvestigation: 'investigate-robert-hale',
 
       content: [
         {
@@ -1065,6 +1079,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-robert-hale',
 
       content: [
         {
@@ -1106,6 +1121,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-henry-robert',
 
       content: [
         {
@@ -1147,6 +1163,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-residence',
 
       content: [
         {
@@ -1193,6 +1210,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-photograph',
 
       content: [
         {
@@ -1234,6 +1252,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-photograph-person',
 
       content: [
         {
@@ -1270,6 +1289,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'October 1929',
       author: 'The Lennox Bureau',
+      requiresInvestigation: 'investigate-robert-following',
 
       content: [
         {
@@ -1306,6 +1326,7 @@ export const case01: CaseData = {
       format: 'document',
       date: 'March 1902',
       author: 'Westbridge Chronicle',
+      requiresInvestigation: 'investigate-1902-records',
 
       content: [
         {
@@ -1347,6 +1368,7 @@ export const case01: CaseData = {
       format: 'document',
       date: '1902',
       author: 'The Grand Continental Hotel Company',
+      requiresInvestigation: 'investigate-1902-records',
 
       content: [
         {

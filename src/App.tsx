@@ -72,6 +72,9 @@ function App() {
   const [selectedDocumentId, setSelectedDocumentId] =
     useState<string | null>(null)
 
+    const [accessedDocuments, setAccessedDocuments] =
+  useState<string[]>([])
+
   const activeCase = getCaseById(activeCaseId)
 
   const hasActiveInvestigation =
@@ -110,10 +113,65 @@ function App() {
       setCompletedInvestigations([])
       setInvestigationResult(null)
       setCaseResult(null)
+      setAccessedDocuments([])
     }
 
     setSaveLoaded(true)
   }, [activeCaseId])
+
+
+  const handleOpenDocument = (
+    documentId: string,
+  ) => {
+    if (!accessedDocuments.includes(documentId)) {
+      const newAccessedDocuments = [
+        ...accessedDocuments,
+        documentId,
+      ]
+  
+      setAccessedDocuments(newAccessedDocuments)
+  
+      const existingSave =
+        loadCaseSave(activeCaseId)
+  
+      saveCaseProgress({
+        caseId: activeCaseId,
+        status: 'in-progress',
+        difficulty,
+        conclusionAnswers:
+          existingSave?.conclusionAnswers ?? {},
+        conclusionFinalStatement:
+          existingSave?.conclusionFinalStatement ?? '',
+        investigationOpportunities:
+          existingSave?.investigationOpportunities ??
+          investigationOpportunities,
+        completedInvestigations:
+          existingSave?.completedInvestigations ?? [],
+        investigationResults:
+          existingSave?.investigationResults ?? [],
+        accessedDocuments:
+          newAccessedDocuments,
+        notebook:
+          existingSave?.notebook ?? {
+            people: '',
+            places: '',
+            timeline: '',
+            notes: '',
+          },
+        result:
+          existingSave?.result ?? null,
+        startedAt:
+          existingSave?.startedAt ??
+          new Date().toISOString(),
+        completedAt:
+          existingSave?.completedAt ?? null,
+      })
+    }
+  
+    setSelectedDocumentId(documentId)
+    setScreen('document-viewer')
+  }
+
 
   const handleInvestigate = (
     investigation: Investigation,
@@ -138,6 +196,10 @@ function App() {
 
     setCompletedInvestigations(
       newCompletedInvestigations,
+    )
+
+    setAccessedDocuments(
+      savedCase.accessedDocuments,
     )
 
     setInvestigationOpportunities(
@@ -395,15 +457,13 @@ conclusionFinalStatement:
           completedInvestigations={
             completedInvestigations
           }
+          accessedDocuments={accessedDocuments}
           investigationResult={investigationResult}
           onOpenConclusion={() =>
             setShowConclusionConfirmation(true)
           }
           onInvestigate={handleInvestigate}
-          onOpenDocuments={(documentId) => {
-            setSelectedDocumentId(documentId)
-            setScreen('document-viewer')
-          }}
+          onOpenDocuments={handleOpenDocument}
           onBack={() =>
             setScreen('case-opening')
           }
