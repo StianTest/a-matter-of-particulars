@@ -198,9 +198,7 @@ function App() {
       newCompletedInvestigations,
     )
 
-    setAccessedDocuments(
-      savedCase.accessedDocuments,
-    )
+
 
     setInvestigationOpportunities(
       newInvestigationOpportunities,
