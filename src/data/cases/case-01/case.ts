@@ -2082,7 +2082,7 @@ export const case01: CaseData = {
     finalStatement: {
       prompt:
         'In your own words, explain what happened to Edmund Cooper and why.',
-      required: true,
+      required: false,
     },
 
     resolution: {
