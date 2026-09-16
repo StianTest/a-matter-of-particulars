@@ -668,20 +668,29 @@ conclusionFinalStatement:
   </div>
 )}
 
-      {screen === 'result' && (
-        <Result
-          score={caseResult?.score ?? 0}
-          maxScore={
-            caseResult?.maxScore ?? 0
-          }
-          percentage={
-            caseResult?.percentage ?? 0
-          }
-          onBack={() =>
-            setScreen('case-file')
-          }
-        />
-      )}
+{screen === 'result' && (
+  <Result
+    caseData={activeCase}
+    score={caseResult?.score ?? 0}
+    maxScore={
+      caseResult?.maxScore ?? 0
+    }
+    percentage={
+      caseResult?.percentage ?? 0
+    }
+    answers={
+      loadCaseSave(activeCaseId)
+        ?.conclusionAnswers ?? {}
+    }
+    finalStatement={
+      loadCaseSave(activeCaseId)
+        ?.conclusionFinalStatement ?? ''
+    }
+    onBack={() =>
+      setScreen('case-file')
+    }
+  />
+)}
 
       {screen === 'how-to-play' && (
         <HowToPlay

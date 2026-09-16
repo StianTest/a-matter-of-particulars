@@ -3764,12 +3764,9 @@
 
    .result {
     position: relative;
-    width: min(860px, calc(100% - 32px));
-    min-height: 720px;
+    width: min(900px, calc(100% - 32px));
     margin: 38px auto 100px;
     padding: 54px 58px 42px;
-    display: flex;
-    flex-direction: column;
     background:
       radial-gradient(
         circle at 15% 8%,
@@ -3833,11 +3830,8 @@
   
   .result__header {
     padding-bottom: 30px;
+    border-bottom: 1px solid rgba(57, 44, 29, 0.22);
   }
-  
-  /* ---------------------------------------------------------
-     Bureau
-     --------------------------------------------------------- */
   
   .result__bureau {
     margin: 0;
@@ -3863,27 +3857,36 @@
     opacity: 0.68;
   }
   
-  /* ---------------------------------------------------------
-     Title
-     --------------------------------------------------------- */
-  
   .result__header h1 {
-    margin: 48px 0 0;
+    max-width: 720px;
+    margin: 44px 0 0;
     font-family:
       "Bodoni 72",
       Didot,
       "Bodoni MT",
       Georgia,
       serif;
-    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-size: clamp(2.4rem, 6vw, 4rem);
     line-height: 0.98;
     font-weight: 500;
     letter-spacing: -0.025em;
   }
   
+  .result__case-number {
+    margin: 14px 0 0;
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.48;
+  }
+  
   .result__intro {
     max-width: 620px;
-    margin: 17px 0 0;
+    margin: 18px 0 0;
     font-family:
       Georgia,
       "Times New Roman",
@@ -3893,96 +3896,91 @@
     opacity: 0.72;
   }
   
-  /* ---------------------------------------------------------
-     Header Rule
-     --------------------------------------------------------- */
-  
-  .result__header::after {
-    content: "";
-    display: block;
-    margin-top: 34px;
-    height: 1px;
-    background:
-      linear-gradient(
-        to right,
-        rgba(57, 44, 29, 0.58),
-        rgba(57, 44, 29, 0.16),
-        transparent
-      );
-  }
-  
   /* =========================================================
-     RESULT RECORD
+     SHARED SECTION HEADING
      ========================================================= */
   
-  .result__score {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 390px;
-    margin: 18px 0 0;
-    padding: 48px 30px 52px;
-    text-align: center;
-    border: 1px solid rgba(61, 48, 32, 0.18);
-    background:
-      linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.12),
-        rgba(125, 101, 70, 0.045)
-      );
+  .result__section-heading {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 26px;
   }
   
-  /* ---------------------------------------------------------
-     Inner Rule
-     --------------------------------------------------------- */
-  
-  .result__score::before,
-  .result__score::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 42%;
-    height: 1px;
-    transform: translateX(-50%);
-    background:
-      linear-gradient(
-        to right,
-        transparent,
-        rgba(61, 48, 32, 0.28),
-        transparent
-      );
-  }
-  
-  .result__score::before {
-    top: 24px;
-  }
-  
-  .result__score::after {
-    bottom: 24px;
-  }
-  
-  /* ---------------------------------------------------------
-     Score Label
-     --------------------------------------------------------- */
-  
-  .result__score-label {
-    margin: 0 0 20px;
+  .result__section-number {
+    padding-top: 2px;
     font-family:
       "Courier New",
       Courier,
       monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.58;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    opacity: 0.52;
   }
   
-  /* ---------------------------------------------------------
-     Main Score
-     --------------------------------------------------------- */
+  .result__section-label {
+    margin: 0 0 5px;
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.52;
+  }
+  
+  .result__section-heading h2 {
+    margin: 0;
+    font-family:
+      "Bodoni 72",
+      Didot,
+      "Bodoni MT",
+      Georgia,
+      serif;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.1;
+    font-weight: 500;
+  }
+  
+  /* =========================================================
+     INVESTIGATION ASSESSMENT
+     ========================================================= */
+  
+  .result__assessment {
+    padding: 38px 0 42px;
+    border-bottom: 1px solid rgba(61, 48, 32, 0.2);
+  }
+  
+  .result__score {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 24px 28px;
+    border: 1px solid rgba(61, 48, 32, 0.18);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.13),
+        rgba(125, 101, 70, 0.045)
+      );
+  }
+  
+  .result__score-label {
+    display: block;
+    margin: 0 0 8px;
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.54;
+  }
   
   .result__score-value {
     display: block;
@@ -3992,28 +3990,278 @@
       "Bodoni MT",
       Georgia,
       serif;
-    font-size: clamp(4.2rem, 13vw, 7rem);
-    line-height: 0.9;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: 0.95;
     font-weight: 500;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.035em;
   }
   
-  /* ---------------------------------------------------------
-     Percentage
-     --------------------------------------------------------- */
-  
   .result__percentage {
-    margin-top: 23px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(61, 48, 32, 0.18);
+    flex: 0 0 auto;
+    padding-left: 28px;
+    border-left: 1px solid rgba(61, 48, 32, 0.2);
     font-family:
       "Courier New",
       Courier,
       monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    opacity: 0.6;
+  }
+  
+  /* =========================================================
+     YOUR FINDINGS
+     ========================================================= */
+  
+  .result__findings {
+    padding: 42px 0;
+    border-bottom: 1px solid rgba(61, 48, 32, 0.2);
+  }
+  
+  .result__questions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .result__question {
+    padding: 28px 0;
+    border-top: 1px solid rgba(61, 48, 32, 0.15);
+  }
+  
+  .result__question:first-child {
+    border-top: none;
+    padding-top: 4px;
+  }
+  
+  .result__question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .result__question-number {
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    opacity: 0.48;
+  }
+  
+  .result__question-status {
+    padding: 5px 9px;
+    border: 1px solid rgba(61, 48, 32, 0.22);
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.57rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  
+  .result__question-status--correct {
+    color: #405b43;
+    border-color: rgba(64, 91, 67, 0.34);
+    background: rgba(64, 91, 67, 0.055);
+  }
+  
+  .result__question-status--incorrect {
+    color: #8a3934;
+    border-color: rgba(138, 57, 52, 0.3);
+    background: rgba(138, 57, 52, 0.045);
+  }
+  
+  .result__question h3 {
+    margin: 0;
+    max-width: 760px;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  
+  .result__answer {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border-left: 2px solid rgba(61, 48, 32, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .result__answer--correct {
+    margin-top: 10px;
+    border-left-color: rgba(64, 91, 67, 0.5);
+    background: rgba(64, 91, 67, 0.045);
+  }
+  
+  .result__answer-label {
+    display: block;
+    margin-bottom: 7px;
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  
+  .result__answer p {
+    margin: 0;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  
+  /* =========================================================
+     FINAL STATEMENT
+     ========================================================= */
+  
+  .result__statement {
+    padding: 42px 0;
+    border-bottom: 1px solid rgba(61, 48, 32, 0.2);
+  }
+  
+  .result__statement-box {
+    padding: 24px 26px;
+    border: 1px solid rgba(61, 48, 32, 0.18);
+    background: rgba(255, 255, 255, 0.075);
+  }
+  
+  .result__statement-prompt {
+    margin: 0 0 20px;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    font-style: italic;
     opacity: 0.62;
+  }
+  
+  .result__statement-text {
+    padding-top: 18px;
+    border-top: 1px solid rgba(61, 48, 32, 0.14);
+    white-space: pre-wrap;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  
+  .result__statement-text em {
+    opacity: 0.48;
+  }
+  
+  /* =========================================================
+     CASE RESOLUTION
+     ========================================================= */
+  
+  .result__resolution {
+    padding: 42px 0;
+    border-bottom: 1px solid rgba(61, 48, 32, 0.2);
+  }
+  
+  .result__resolution-sections {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .result__resolution-section {
+    padding: 26px 0;
+    border-top: 1px solid rgba(61, 48, 32, 0.15);
+  }
+  
+  .result__resolution-section:first-child {
+    padding-top: 4px;
+    border-top: none;
+  }
+  
+  .result__resolution-section h3 {
+    margin: 0 0 12px;
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  
+  .result__resolution-section p {
+    max-width: 760px;
+    margin: 0;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    opacity: 0.8;
+  }
+  
+  /* =========================================================
+     CASE DISPOSITION
+     ========================================================= */
+  
+  .result__disposition {
+    padding: 42px 0 0;
+  }
+  
+  .result__disposition-box {
+    padding: 28px 30px;
+    border: 1px solid rgba(61, 48, 32, 0.2);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(61, 48, 32, 0.035),
+        rgba(255, 255, 255, 0.09)
+      );
+    text-align: center;
+  }
+  
+  .result__disposition-box p {
+    max-width: 620px;
+    margin: 0 auto;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    opacity: 0.72;
+  }
+  
+  .result__disposition-box span {
+    display: block;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(61, 48, 32, 0.14);
+    font-family:
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.48;
   }
   
   /* =========================================================
@@ -4025,14 +4273,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-    margin-top: 34px;
+    margin-top: 38px;
     padding-top: 30px;
     border-top: 1px solid rgba(61, 48, 32, 0.18);
   }
-  
-  /* ---------------------------------------------------------
-     Footer Detail
-     --------------------------------------------------------- */
   
   .result__footer::before {
     content: "CASE RECORD • CLOSED";
@@ -4045,10 +4289,6 @@
     text-transform: uppercase;
     opacity: 0.45;
   }
-  
-  /* ---------------------------------------------------------
-     Return Button
-     --------------------------------------------------------- */
   
   .result__back {
     min-width: 220px;
@@ -4088,13 +4328,12 @@
   @media (max-width: 640px) {
     .result {
       width: calc(100% - 20px);
-      min-height: 680px;
       margin: 20px auto 60px;
       padding: 32px 24px 30px;
     }
   
     .result__header h1 {
-      margin-top: 38px;
+      margin-top: 36px;
       font-size: clamp(2rem, 12vw, 3rem);
     }
   
@@ -4103,25 +4342,54 @@
       line-height: 1.7;
     }
   
-    .result__score {
-      min-height: 360px;
-      margin-top: 12px;
-      padding: 42px 15px 48px;
+    .result__section-heading {
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
     }
   
-    .result__score-value {
-      font-size: clamp(4rem, 22vw, 6rem);
+    .result__section-heading h2 {
+      font-size: 1.55rem;
+    }
+  
+    .result__score {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
+      padding: 22px;
     }
   
     .result__percentage {
-      margin-top: 18px;
+      width: 100%;
+      padding-left: 0;
+      padding-top: 14px;
+      border-left: none;
+      border-top: 1px solid rgba(61, 48, 32, 0.18);
+    }
+  
+    .result__question-header {
+      align-items: flex-start;
+    }
+  
+    .result__question-status {
+      flex: 0 0 auto;
+    }
+  
+    .result__answer {
+      padding: 14px 15px;
+    }
+  
+    .result__statement-box {
+      padding: 20px;
+    }
+  
+    .result__disposition-box {
+      padding: 24px 20px;
     }
   
     .result__footer {
       flex-direction: column;
       align-items: stretch;
       gap: 20px;
-      padding-top: 24px;
     }
   
     .result__footer::before {

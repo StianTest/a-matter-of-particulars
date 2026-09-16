@@ -1478,6 +1478,7 @@ export const case01: CaseData = {
         'Several independent clues establish that Robert Hale is Henry Cooper, Edmund Cooper’s brother, who survived his presumed drowning and returned to Westbridge under a new identity.',
       unlocks: [
         'investigate-robert-following',
+        'investigate-1902-records',
       ],
       cost: 1,
       unlocked: false,
@@ -1494,9 +1495,7 @@ export const case01: CaseData = {
         'Determine whether Robert Hale was the person Edmund believed had been following him.',
       result:
         'Robert Hale had indeed been observing Edmund repeatedly. He had recognized his brother and was trying to understand what had become of him. His initial motive was curiosity rather than murder.',
-      unlocks: [
-        'investigate-1902-records',
-      ],
+      unlocks: [],
       cost: 1,
       unlocked: false,
       completed: false,
@@ -1519,7 +1518,7 @@ export const case01: CaseData = {
       unlocked: false,
       completed: false,
       requires: [
-        'investigate-robert-following',
+        'investigate-henry-robert',
       ],
     },
 
@@ -1562,8 +1561,8 @@ export const case01: CaseData = {
       title: 'Examine the Cooper Residence',
       description:
         'Investigate how someone could have entered the residence without leaving signs of forced entry.',
-      result:
-        'There are no signs of forced entry. A spare key normally kept in a small drawer in Edmund’s working room is missing. The drawer also appears to have been searched.',
+        result:
+        'There are no signs of forced entry. A spare key normally kept in a small drawer in Edmund’s working room is missing. The drawer also appears to have been searched. Edmund had already reported that someone entered the residence before his death, making it likely that the missing key was taken during that earlier entry.',
       unlocks: [
         'investigate-drawer',
       ],
@@ -1577,8 +1576,8 @@ export const case01: CaseData = {
       title: 'Search the Working Room Drawer',
       description:
         'Investigate the drawer where Edmund kept old family papers and the spare house key.',
-      result:
-        'The drawer had been searched. The spare key is missing, and several old family papers had been disturbed. Someone who entered earlier appears to have been looking for information about the Cooper family.',
+        result:
+        'The drawer had been searched. The spare key is missing, and several old family papers had been disturbed. The evidence suggests that the person who entered the house earlier searched the drawer, took the spare key and looked through the family records. Because the residence showed no signs of forced entry when Edmund was killed, the same key provides a plausible means for that person to return later.',
       unlocks: [
         'investigate-family-records',
       ],
@@ -1869,17 +1868,20 @@ export const case01: CaseData = {
           },
           {
             id: 'family',
-            text: 'Henry Cooper recognized his former family and handled it after returning to Westbridge.',
+            text:
+              'Henry Cooper recognized his former family and handled it after returning to Westbridge.',
             correct: true,
           },
           {
             id: 'thomas',
-            text: 'Thomas Reed moved it to create a false clue.',
+            text:
+              'Thomas Reed moved it to create a false clue.',
             correct: false,
           },
           {
             id: 'beatrice',
-            text: 'Beatrice moved it while searching for documents.',
+            text:
+              'Beatrice moved it while searching for documents.',
             correct: false,
           },
         ],
@@ -1897,17 +1899,20 @@ export const case01: CaseData = {
           },
           {
             id: 'bellamy',
-            text: 'Edmund had arranged Alfred Bellamy’s killing to improve his chance of winning the Grand Continental contract.',
+            text:
+              'Edmund had arranged Alfred Bellamy’s killing to improve his chance of winning the Grand Continental contract.',
             correct: true,
           },
           {
             id: 'mercers',
-            text: 'Edmund had been a member of The Mercer Gang.',
+            text:
+              'Edmund had been a member of The Mercer Gang.',
             correct: false,
           },
           {
             id: 'theft',
-            text: 'Edmund had stolen Bellamy’s company.',
+            text:
+              'Edmund had stolen Bellamy’s company.',
             correct: false,
           },
         ],
@@ -1920,22 +1925,26 @@ export const case01: CaseData = {
         options: [
           {
             id: 'ordinary',
-            text: 'It was an ordinary payment for textile supplies.',
+            text:
+              'It was an ordinary payment for textile supplies.',
             correct: false,
           },
           {
             id: 'charity',
-            text: 'It was a charitable contribution.',
+            text:
+              'It was a charitable contribution.',
             correct: false,
           },
           {
             id: 'criminal',
-            text: 'It provided a link between Edmund’s private business records and James Mercer of The Mercer Gang.',
+            text:
+              'It provided a link between Edmund’s private business records and James Mercer of The Mercer Gang.',
             correct: true,
           },
           {
             id: 'thomas',
-            text: 'It was connected to Thomas Reed’s 1929 expansion plan.',
+            text:
+              'It was connected to Thomas Reed’s 1929 expansion plan.',
             correct: false,
           },
         ],
@@ -1948,22 +1957,26 @@ export const case01: CaseData = {
         options: [
           {
             id: 'murder',
-            text: 'That he had arranged Edmund’s murder.',
+            text:
+              'That he had arranged Edmund’s murder.',
             correct: false,
           },
           {
             id: 'money',
-            text: 'That he had used company money on an unauthorized expansion plan.',
+            text:
+              'That he had used company money on an unauthorized expansion plan.',
             correct: true,
           },
           {
             id: 'affair',
-            text: 'That he was having an affair with Beatrice Cooper.',
+            text:
+              'That he was having an affair with Beatrice Cooper.',
             correct: false,
           },
           {
             id: 'blackmail',
-            text: 'That he had been blackmailing Edmund.',
+            text:
+              'That he had been blackmailing Edmund.',
             correct: false,
           },
         ],
@@ -1976,22 +1989,26 @@ export const case01: CaseData = {
         options: [
           {
             id: 'affair',
-            text: 'She intended to leave Edmund for Harrington.',
+            text:
+              'She intended to leave Edmund for Harrington.',
             correct: false,
           },
           {
             id: 'murder',
-            text: 'She wanted legal advice about old papers suggesting Edmund may have been involved in something serious in 1902.',
+            text:
+              'She wanted legal advice about old papers suggesting Edmund may have been involved in something serious in 1902.',
             correct: true,
           },
           {
             id: 'money',
-            text: 'She wanted Harrington to hide money from the police.',
+            text:
+              'She wanted Harrington to hide money from the police.',
             correct: false,
           },
           {
             id: 'blackmail',
-            text: 'She wanted to arrange blackmail against Edmund.',
+            text:
+              'She wanted to arrange blackmail against Edmund.',
             correct: false,
           },
         ],
@@ -2004,22 +2021,26 @@ export const case01: CaseData = {
         options: [
           {
             id: 'evidence',
-            text: 'They had definitive physical evidence proving that Thomas killed Edmund.',
+            text:
+              'They had definitive physical evidence proving that Thomas killed Edmund.',
             correct: false,
           },
           {
             id: 'circumstances',
-            text: 'The combination of his serious dispute with Edmund, unauthorized spending, access and concealment made him appear to have motive and opportunity.',
+            text:
+              'The combination of his serious dispute with Edmund, unauthorized spending, access and concealment made him appear to have motive and opportunity.',
             correct: true,
           },
           {
             id: 'confession',
-            text: 'Thomas confessed to the murder.',
+            text:
+              'Thomas confessed to the murder.',
             correct: false,
           },
           {
             id: 'witness',
-            text: 'A witness saw Thomas leave the Cooper residence after the murder.',
+            text:
+              'A witness saw Thomas leave the Cooper residence after the murder.',
             correct: false,
           },
         ],
@@ -2062,6 +2083,52 @@ export const case01: CaseData = {
       prompt:
         'In your own words, explain what happened to Edmund Cooper and why.',
       required: true,
+    },
+
+    resolution: {
+      sections: [
+        {
+          title: 'The Murder',
+          text:
+  'Edmund Cooper was killed by his brother, Henry Cooper, who had returned to Westbridge City under the name Robert Hale. Henry had survived the disappearance that had led to his presumed drowning in 1902. After recognizing Edmund, he began observing him and eventually entered the Cooper residence while Edmund was away. During this earlier visit, Henry searched the working room, took the spare key and examined the old family records. He also moved the family photograph after recognizing himself and his former family in it. Henry later returned to the residence using the stolen key. He confronted Edmund about Alfred Bellamy’s death and the evidence connecting Edmund to the events of 1902. The confrontation escalated, and Henry struck Edmund once with the heavy iron fire poker. The blow was fatal.',
+        },
+
+        {
+          title: 'Beatrice & Harrington',
+          text:
+            'Beatrice Cooper and George Harrington were concealing a genuine secret, but it was not Edmund’s murder. Beatrice had discovered old papers among Edmund’s private records and was concerned about what they might reveal. She therefore met Harrington privately to obtain legal advice. Harrington also concealed the meeting and had written private letters to Beatrice, giving the relationship an additional appearance of secrecy. Their conduct could reasonably make them appear suspicious, particularly because the meeting occurred on the evening of Edmund’s death. The evidence, however, shows that Beatrice returned home while Edmund was still alive and that the purpose of the meeting was to understand the old papers. Their secrecy was real, but it was unrelated to the murder.',
+        },
+
+        {
+          title: 'Thomas Reed',
+          text:
+            'Thomas Reed was also hiding something real. He had pursued a major expansion of Cooper Textiles without Edmund’s approval and had already committed more company money to the proposal than he initially admitted. Edmund was angry enough to threaten Reed’s position, and Reed had legitimate access to the company and knowledge of Edmund’s affairs. These circumstances gave the police a plausible motive and opportunity. They did not, however, establish that Reed killed Edmund. His deception concerned the unauthorized expansion, not the murder.',
+        },
+
+        {
+          title: 'Margaret Whitmore',
+          text:
+            'Margaret Whitmore had a genuine conflict with Edmund. He had withdrawn promised financial support from the children’s home she cared deeply about, and their conversation became emotional. Her personal history gave the dispute additional weight, and her anger could therefore appear significant during an investigation. There is nevertheless no evidence that Margaret planned to harm Edmund or that she was involved in his death. Her conflict with Edmund was real, but it was not a murder motive carried through to action.',
+        },
+
+        {
+          title: 'The 1902 Connection',
+          text:
+            'The old papers discovered among Edmund’s records were not a meaningless coincidence. In 1902, Alfred Bellamy, a competing textile businessman, was killed shortly before Cooper Textiles received an important contract from The Grand Continental Hotel Company. An old Cooper Textiles accounting entry records a payment of £250 to J. Mercer. Police records identify James Mercer as a known associate of The Mercer Gang and as a person of interest in the Bellamy investigation. The records do not contain a direct confession from Edmund, but taken together they provide a strong connection between Edmund’s commercial interests, the Bellamy killing and the Mercer Gang. Henry Cooper discovered enough to understand that Edmund had been involved in Bellamy’s death, and this knowledge became the reason for their final confrontation.',
+        },
+
+        {
+          title: 'The Identity of Robert Hale',
+          text:
+            'Robert Hale was not simply a travelling sales representative who happened to arrive in Westbridge in 1929. The evidence connects him to Henry Cooper, Edmund’s brother, who disappeared after Alfred Bellamy’s death in 1902 and was presumed drowned. Their ages correspond, Hale possessed knowledge of the Cooper family and the old Westbridge waterfront, and the family photograph provided a direct connection to Henry’s identity. The combined evidence establishes that Robert Hale was Henry Cooper, who had survived his disappearance and returned to Westbridge under another name.',
+        },
+
+        {
+          title: 'The Final Reconstruction',
+          text:
+            'The events can therefore be reconstructed in sequence. Henry Cooper survived the disappearance that had been recorded as his presumed drowning and eventually returned to Westbridge as Robert Hale. After recognizing his brother Edmund, he began following him and later entered the Cooper residence using the missing spare key. His interest in the family photograph and the old family records was connected to his attempt to understand what had happened to his family and what Edmund had done in 1902. Meanwhile, Beatrice was secretly seeking legal advice about the same old records, Harrington was concealing his personal relationship with her, Thomas Reed was concealing his unauthorized business expansion, and Margaret was involved in a genuine dispute with Edmund. All of these facts were true, but none of them made those people responsible for the murder. Henry was the person whose hidden identity connected the past to Edmund’s death. After confronting Edmund about Alfred Bellamy’s killing, Henry struck him once with the fire poker. Edmund died from the blow, and the circumstances initially caused the police to arrest Thomas Reed. The investigation ultimately revealed that the most obvious suspects had been hiding real secrets for entirely different reasons.',
+        },
+      ],
     },
   },
 }

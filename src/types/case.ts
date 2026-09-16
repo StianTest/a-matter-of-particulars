@@ -98,11 +98,19 @@ export type CaseDocumentBase = {
     required?: boolean
   }
   
+  export type ConclusionResolutionSection = {
+    title: string
+    text: string
+  }
+  
   export type Conclusion = {
     questions: ConclusionQuestion[]
     finalStatement?: {
       prompt: string
       required?: boolean
+    }
+    resolution?: {
+      sections: ConclusionResolutionSection[]
     }
   }
 
