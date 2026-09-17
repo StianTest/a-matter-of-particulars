@@ -304,87 +304,80 @@ export const case02: CaseData = {
     },
 
     {
-      id: 'eleanor-photograph',
-      title: 'Photograph of Eleanor and Her Mother',
-      type: 'Personal Photograph',
-      format: 'document',
-      date: 'Approximately 1910s',
-      author: 'Private Family Collection',
-      requiresInvestigation: 'investigate-photograph',
+      
+        id: 'eleanor-photograph',
+        title: 'Photograph of Eleanor and Her Mother',
+        type: 'Personal Photograph',
+        format: 'image',
+        date: 'Approximately 1910s',
+        author: 'Private Family Collection',
+        requiresInvestigation: 'investigate-photograph',
+        image: '/cases/case-02/eleanor-photograph.jpg',
+        content: [
+          {
+            type: 'heading',
+            text: 'FAMILY PHOTOGRAPH',
+          },
+          {
+            type: 'paragraph',
+            text: 'The photograph shows Eleanor Hartley as a young child beside her mother.',
+          },
+          {
+            type: 'paragraph',
+            text: 'The image is a plainly personal family photograph and appears to have been kept among Eleanor’s belongings for many years.',
+          },
+          {
+            type: 'paragraph',
+            text: 'There is no indication that the photograph was deliberately left behind as a message or clue.',
+          },
+          {
+            type: 'paragraph',
+            text: 'Its significance lies in the fact that Eleanor appears to have left behind something she would have had a natural reason to take if she had voluntarily departed.',
+          },
+        ],
+      },
+    
 
-      content: [
-        {
-          type: 'heading',
-          text: 'FAMILY PHOTOGRAPH',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'The photograph shows Eleanor Hartley as a young child beside her mother.',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'The image is a plainly personal family photograph and appears to have been kept among Eleanor’s belongings for many years.',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'There is no indication that the photograph was deliberately left behind as a message or clue.',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'Its significance lies in the fact that Eleanor appears to have left behind something she would have had a natural reason to take if she had voluntarily departed.',
-        },
-      ],
-    },
-
-    {
-      id: 'bellford-booking-receipt',
-      title: 'Railway Booking Receipt — Bellford',
-      type: 'Railway Record',
-      format: 'document',
-      date: 'October 1929',
-      author: 'The Crown Railway Company',
-      requiresInvestigation: 'investigate-booking-receipt',
-
-      content: [
-        {
-          type: 'heading',
-          text: 'THE CROWN RAILWAY COMPANY',
-        },
-        {
-          type: 'subheading',
-          text: 'BOOKING RECEIPT',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'Passenger: Eleanor Victoria Hartley',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'Journey: Westbridge City to Bellford',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'Reservation: Carriage B, Seat 12',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'The receipt confirms that a reservation was made in Eleanor Hartley’s name. It does not establish that the journey was actually made.',
-        },
-        {
-          type: 'paragraph',
-          text:
-            'The corresponding travel ticket is not among Eleanor’s remaining papers.',
-        },
-      ],
-    },
+      {
+        id: 'bellford-booking-receipt',
+        title: 'Railway Booking Receipt — Bellford',
+        type: 'Railway Record',
+        format: 'image',
+        date: 'October 1929',
+        author: 'The Crown Railway Company',
+        requiresInvestigation: 'investigate-booking-receipt',
+        image: '/cases/case-02/bellford-booking-receipt.jpg',
+        content: [
+          {
+            type: 'heading',
+            text: 'THE CROWN RAILWAY COMPANY',
+          },
+          {
+            type: 'subheading',
+            text: 'BOOKING RECEIPT',
+          },
+          {
+            type: 'paragraph',
+            text: 'Passenger: Eleanor Victoria Hartley',
+          },
+          {
+            type: 'paragraph',
+            text: 'Journey: Westbridge City to Bellford',
+          },
+          {
+            type: 'paragraph',
+            text: 'Reservation: Carriage B, Seat 12',
+          },
+          {
+            type: 'paragraph',
+            text: 'The receipt confirms that a reservation was made in Eleanor Hartley’s name. It does not establish that the journey was actually made.',
+          },
+          {
+            type: 'paragraph',
+            text: 'The corresponding travel ticket is not among Eleanor’s remaining papers.',
+          },
+        ],
+      },
 
     {
       id: 'crown-railway-record',

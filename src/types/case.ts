@@ -45,6 +45,7 @@ export type CaseDocumentBase = {
     format: 'image'
     image: string
     caption?: string
+    content?: DocumentBlock[]
   }
   
   export type CaseDocument =

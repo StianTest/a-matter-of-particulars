@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Investigation } from './types/case'
 import GameShell from './components/GameShell'
 import CaseOpening from './components/CaseOpening'
@@ -9,6 +9,7 @@ import Documents from './components/Documents'
 import Notebook from './components/Notebook'
 import Conclusion from './components/Conclusion'
 import HowToPlay from './components/HowToPlay'
+import Settings from './components/Settings'
 import Result from './components/Result'
 import { cases, getCaseById } from './data/cases'
 import { DEFAULT_CASE_ID } from './data/cases/activeCase'
@@ -24,6 +25,69 @@ import {
 function App() {
   const [activeCaseId, setActiveCaseId] =
     useState(DEFAULT_CASE_ID)
+
+    const audioRef = useRef<HTMLAudioElement | null>(null)
+
+    const handleToggleMusic = () => {
+      const audio = audioRef.current
+    
+      if (!audio) return
+    
+      if (musicEnabled) {
+        audio.pause()
+        setMusicEnabled(false)
+        return
+      }
+    
+      audio.volume = musicVolume
+    
+      audio.play()
+        .then(() => {
+          setMusicEnabled(true)
+        })
+        .catch(() => {
+          setMusicEnabled(false)
+        })
+    }
+
+    const [musicEnabled, setMusicEnabled] =
+  useState(false)
+
+  const [musicVolume, setMusicVolume] =
+  useState(0.5)
+
+  const musicAutoStartedRef = useRef(false)
+
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = musicVolume
+    }
+  }, [musicVolume])
+
+  useEffect(() => {
+    const startMusic = () => {
+      const audio = audioRef.current
+  
+      if (!audio || musicAutoStartedRef.current) return
+  
+      audio.volume = musicVolume
+  
+      audio.play()
+        .then(() => {
+          musicAutoStartedRef.current = true
+          setMusicEnabled(true)
+        })
+        .catch(() => {})
+    }
+  
+    window.addEventListener('click', startMusic)
+  
+    return () => {
+      window.removeEventListener('click', startMusic)
+    }
+  }, [musicVolume])
+
 
     const [difficulty, setDifficulty] =
   useState<'easy' | 'normal' | 'hard'>('normal')
@@ -56,7 +120,7 @@ function App() {
       percentage: number
     } | null>(null)
 
-  const [screen, setScreen] = useState<
+    const [screen, setScreen] = useState<
     | 'menu'
     | 'case-files'
     | 'case-opening'
@@ -67,6 +131,7 @@ function App() {
     | 'conclusion'
     | 'how-to-play'
     | 'result'
+    | 'settings'
   >('menu')
 
   const [selectedDocumentId, setSelectedDocumentId] =
@@ -293,7 +358,16 @@ conclusionFinalStatement:
       screen === 'conclusion'
     }
       caseId={activeCaseId}
+
     >
+
+<audio
+  ref={audioRef}
+  src="/audio/jazz-slower.mp3"
+  loop
+/>
+
+
       {screen === 'menu' && (
         <main className="main-menu">
           <div className="main-menu__inner">
@@ -369,7 +443,13 @@ conclusionFinalStatement:
                 How to Play
               </button>
 
-              <button>Settings</button>
+              <button
+  onClick={() =>
+    setScreen('settings')
+  }
+>
+  Settings
+</button>
             </nav>
 
             <div className="main-menu__location">
@@ -699,6 +779,19 @@ conclusionFinalStatement:
           }
         />
       )}
+
+{screen === 'settings' && (
+  <Settings
+    onBack={() =>
+      setScreen('menu')
+    }
+    musicEnabled={musicEnabled}
+    onToggleMusic={handleToggleMusic}
+    musicVolume={musicVolume}
+    onVolumeChange={setMusicVolume}
+  />
+)}
+
     </GameShell>
   )
 }

@@ -147,53 +147,92 @@ function DocumentViewer({
             </article>
           )}
 
-          {document.format === 'image' && (
-            <>
-              <article className="case-image">
+{document.format === 'image' && (
+  <>
+    <article className="case-image">
 
-                <div
-                  className="case-image__frame"
-                  onClick={() => setIsImageExpanded(true)}
+      <div
+        className="case-image__frame"
+        onClick={() => setIsImageExpanded(true)}
+      >
+        <img
+          src={document.image}
+          alt={document.title}
+        />
+      </div>
+
+      <div className="case-image__caption">
+        <h1>{document.title}</h1>
+
+        {document.caption && (
+          <p>{document.caption}</p>
+        )}
+      </div>
+
+      {document.content && (
+        <div className="case-image__content">
+          {document.content.map((block, index) => {
+            if (block.type === 'heading') {
+              return (
+                <h2 key={index}>
+                  {block.text}
+                </h2>
+              )
+            }
+
+            if (block.type === 'subheading') {
+              return (
+                <h3 key={index}>
+                  {block.text}
+                </h3>
+              )
+            }
+
+            if (block.type === 'signature') {
+              return (
+                <p
+                  key={index}
+                  className="case-image__signature"
                 >
-                  <img
-                    src={document.image}
-                    alt={document.title}
-                  />
-                </div>
+                  {block.text}
+                </p>
+              )
+            }
 
-                <div className="case-image__caption">
-                  <h1>{document.title}</h1>
+            return (
+              <p key={index}>
+                {block.text}
+              </p>
+            )
+          })}
+        </div>
+      )}
 
-                  {document.caption && (
-                    <p>{document.caption}</p>
-                  )}
-                </div>
+    </article>
 
-              </article>
+    {isImageExpanded && (
+      <div
+        className="case-image__overlay"
+        onClick={() => setIsImageExpanded(false)}
+      >
+        <button
+          className="case-image__close"
+          onClick={() => setIsImageExpanded(false)}
+          aria-label="Close enlarged image"
+        >
+          ×
+        </button>
 
-              {isImageExpanded && (
-                <div
-                  className="case-image__overlay"
-                  onClick={() => setIsImageExpanded(false)}
-                >
-                  <button
-                    className="case-image__close"
-                    onClick={() => setIsImageExpanded(false)}
-                    aria-label="Close enlarged image"
-                  >
-                    ×
-                  </button>
-
-                  <img
-                    className="case-image__expanded"
-                    src={document.image}
-                    alt={document.title}
-                    onClick={(event) => event.stopPropagation()}
-                  />
-                </div>
-              )}
-            </>
-          )}
+        <img
+          className="case-image__expanded"
+          src={document.image}
+          alt={document.title}
+          onClick={(event) => event.stopPropagation()}
+        />
+      </div>
+    )}
+  </>
+)}
 
         </div>
       ) : (
